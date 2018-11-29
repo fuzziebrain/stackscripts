@@ -157,8 +157,8 @@ sqlplus / as sysdba << EOF
     ) loop
       sys.dbms_network_acl_admin.append_host_ace(
         host => '*'
-        , ace => xs\$ace_type(
-            privilege_list => xs\$name_list('connect')
+        , ace => xs\\\$ace_type(
+            privilege_list => xs\\\$name_list('connect')
             , principal_name => c1.schema
             , principal_type => xs_acl.ptype_db
         )
