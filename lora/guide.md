@@ -90,3 +90,28 @@ $ tail -f /tmp/loraDeploy.log
   SSLCertificateChainFile /etc/letsencrypt/live/lora.fuzziebrain.com/chain.pem
 </VirtualHost>
 ```
+
+## Using the Deployment Script on Other Platforms
+
+To use the deployment script on a different provided, e.g. [DigitalOcean](https://m.do.co/c/6f9b549ca569), create a shell script (e.g. `.env`) that loads the variables into the environment:
+
+```bash
+#!/bin/bash
+export SS_ORACLE_PASSWORD=
+export SS_ORACLE_CHARSET=
+export SS_APEX_ADMIN_EMAIL=
+export SS_APEX_ADMIN_PASSWORD=
+export SS_SERVER_NAME=
+export SS_SSL_ENABLED=
+export SS_ORACLE_XE_RPM_URL=
+export SS_APEX_ZIP_URL=
+export SS_ORDS_ZIP_URL=
+export SS_POST_DEPLOY_CLEANUP=
+```
+
+Enter the required variables, load them, then run the deployment script:
+
+```bash
+$ . .env
+$ ./deployLora.sh
+```
